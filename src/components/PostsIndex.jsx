@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 //import api
 import api from "../services/api";
-const apiKey="6c793695171e793d7d0080ad7700a2bc50256912cef2492c201e8ecc54b24ab5"
+// const apiKey=import.meta.env.apiKey
 export default function PostIndex() {
   //ini state
   const [posts, setPosts] = useState([]);
@@ -12,9 +12,9 @@ export default function PostIndex() {
   const fetchDataPosts = async () => {
     //fetch data from API with Axios
     await api.get("/api/posts", {
-      headers: {
-        'x-api-key':`${apiKey}`,
-      }
+      // headers: {
+      //   'x-api-key':`${apiKey}`,
+      // }
     }).then((response) => {
       //assign response data to state "posts"
       setPosts(response.data.data.data);
